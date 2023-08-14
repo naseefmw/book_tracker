@@ -1,0 +1,16 @@
+{
+  "reading": [
+    {
+      "id": 1,
+      "name": "Harry Potter",
+      "totalPages": 500,
+      "current": 100
+    },
+    {
+      "id": 2,
+      "name": "Hunger Games",
+      "totalPages": 500,
+      "current": 50
+    }
+  ]
+}
