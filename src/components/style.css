@@ -1,66 +1,141 @@
-.heading {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  padding-top: 1%;
+@media (min-width: 700px) {
+  .heading {
+    margin: auto 0;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-top: 1%;
+  }
+
+  .subHeading {
+    margin: 2% 0;
+    position: fixed;
+    padding: 0;
+    padding-left: 1%;
+  }
+
+  .reading {
+    margin: auto;
+    padding: 1%;
+    padding-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+  }
+
+  .currentBook {
+    min-width: 45%;
+    background-color: #373348;
+    margin: 1% 1.8%;
+    padding: 0.5%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border: 1px solid;
+  }
+
+  .bookCover {
+    padding: 0;
+    max-height: 100px;
+    max-width: 100px;
+    margin: 1%;
+    border-radius: 10px;
+    border: 1px;
+  }
+
+  .bookInfo {
+    max-height: 150px;
+    display: flex;
+    text-align: left;
+    margin: 1%;
+    padding: 0;
+    justify-content: space-evenly;
+
+    flex-direction: column;
+    flex: 3;
+  }
+
+  .bookInfo progress {
+    width: auto;
+    margin: 0 2%;
+  }
+
+  .bookInfo h2,
+  h6 {
+    margin: 0;
+    padding: 0;
+    margin: 0 2%;
+    color: white;
+  }
 }
 
-.subHeading {
-  margin: 0;
-  padding: 0;
-  padding-left: 1%;
-}
+@media (max-width: 699px) {
+  .heading {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-top: 1%;
+  }
 
-.reading {
-  margin: 1%;
-  padding: 1%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: start;
-}
+  .subHeading {
+    margin: 0;
+    padding: 0;
+    padding-left: 1%;
+  }
 
-.currentBook {
-  min-width: 45%;
-  background-color: #373348;
-  margin: 1%;
-  padding: 0.5%;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 10px;
-  border: 1px solid;
-}
+  .reading {
+    margin: auto;
+    padding: 2% 3%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 
-.bookCover {
-  padding: 0;
-  max-height: 100px;
-  max-width: 100px;
-  margin: 1%;
-  border-radius: 10px;
-  border: 1px;
-}
+  .currentBook {
+    min-width: 45%;
+    background-color: #373348;
+    margin: 1.5% 1.8%;
+    padding: 0.5%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border: 1px solid;
+  }
 
-.bookInfo {
-  max-height: 150px;
-  display: flex;
-  text-align: left;
-  margin: 1%;
-  padding: 0;
-  justify-content: space-evenly;
+  .bookCover {
+    padding: 0;
+    max-height: 100px;
+    max-width: 100px;
+    margin: 1%;
+    border-radius: 10px;
+    border: 1px;
+  }
 
-  flex-direction: column;
-  flex: 3;
-}
+  .bookInfo {
+    max-height: 150px;
+    display: flex;
+    text-align: left;
+    margin: 1%;
+    padding: 0;
+    justify-content: space-evenly;
 
-.bookInfo progress {
-  width: auto;
-  margin: 0 2%;
-}
+    flex-direction: column;
+    flex: 3;
+  }
 
-.bookInfo h2,
-h6 {
-  margin: 0;
-  padding: 0;
-  margin: 0 2%;
-  color: white;
+  .bookInfo progress {
+    width: auto;
+    margin: 0 2%;
+  }
+
+  .bookInfo h2,
+  h6 {
+    margin: 0;
+    padding: 0;
+    margin: 0 2%;
+    color: white;
+  }
 }

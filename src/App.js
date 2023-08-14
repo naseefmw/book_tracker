@@ -7,6 +7,9 @@ const App = () => {
     <div className="background">
       <Heading />
       <Reading />
+      <Reading />
+      <Reading />
+      <Reading />
     </div>
   )
 }
