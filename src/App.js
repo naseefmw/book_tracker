@@ -1,15 +1,21 @@
 import Heading from './components/Heading'
-import Reading from './components/Reading'
+import SectionList from './components/SectionList'
 import './App.css'
+import { useState, useEffect } from 'react'
+import bookService from './services/books'
 
 const App = () => {
+  const [bookList, setBookList] = useState([])
+
+  useEffect(() => {
+    bookService.getAll().then((initialBooks) => {
+      setBookList(initialBooks)
+    })
+  }, [])
   return (
     <div className="background">
       <Heading />
-      <Reading />
-      <Reading />
-      <Reading />
-      <Reading />
+      <SectionList books={bookList} />
     </div>
   )
 }

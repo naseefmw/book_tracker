@@ -1,6 +1,6 @@
 import './style.css'
 
-const BookCard = () => {
+const BookCard = ({ book }) => {
   return (
     <div className="currentBook">
       <img
@@ -9,11 +9,9 @@ const BookCard = () => {
         alt="img"
       />
       <div className="bookInfo">
-        <h2>Harry Potter</h2>
-        <h6>J K Rowling</h6>
-        <progress max="100" value="70">
-          70%
-        </progress>
+        <h2>{book.title}</h2>
+        <h6>{book.author}</h6>
+        <progress max={book.pageCount} value={book.currentPage} />
       </div>
     </div>
   )
