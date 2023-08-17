@@ -27,7 +27,7 @@ booksRouter.post('/', async (request, response) => {
     image: body.image,
     pageCount: body.pageCount,
     currentPage: body.currentPage || 0,
-    startDate: body.startDate || new Date().toLocaleDateString('en-IN'),
+    startDate: body.startDate,
     endDate: body.endDate,
     rating: body.rating || 0,
     user: user.id,
