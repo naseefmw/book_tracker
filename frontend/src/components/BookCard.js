@@ -3,11 +3,7 @@ import './style.css'
 const BookCard = ({ book }) => {
   return (
     <div className="currentBook">
-      <img
-        className="bookCover"
-        src="https://covers.openlibrary.org/b/id/14362634-L.jpg"
-        alt="img"
-      />
+      <img className="bookCover" src={book.image} alt="img" />
       <div className="bookInfo">
         <h2>{book.title}</h2>
         <h6>{book.author}</h6>

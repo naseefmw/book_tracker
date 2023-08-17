@@ -1,22 +1,20 @@
-import Heading from './components/Heading'
-import SectionList from './components/SectionList'
-import './App.css'
-import { useState, useEffect } from 'react'
+import Main from './components/Main'
+import Login from './components/Login'
 import bookService from './services/books'
+import { useState, useEffect } from 'react'
 
 const App = () => {
-  const [bookList, setBookList] = useState([])
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
-    bookService.getAll().then((initialBooks) => {
-      setBookList(initialBooks)
-    })
+    const loggedUserJSON = window.localStorage.getItem('loggedBookTrackerUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+      bookService.setToken(user.token)
+    }
   }, [])
-  return (
-    <div className="background">
-      <Heading />
-      <SectionList books={bookList} />
-    </div>
-  )
+
+  return <>{user === null ? <Login setUser={setUser} /> : <Main />}</>
 }
 export default App
