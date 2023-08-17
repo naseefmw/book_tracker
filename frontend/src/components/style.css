@@ -1,19 +1,36 @@
 @media (min-width: 700px) {
-  .heading {
-    margin: auto 0;
+  .navbar {
+    padding: 0;
+    margin: 0;
     position: fixed;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navbar h1 {
     margin: 0;
     padding: 0;
     text-align: center;
-    padding-top: 1%;
   }
-
-  .subHeading {
-    margin: 2% 0;
-    position: fixed;
+  .navbar h3 {
+    margin: 0;
     padding: 0;
+    margin-top: 2%;
     padding-left: 1%;
+  }
+  .searchBar {
+    margin: 0;
+    padding: 0;
+    margin-top: 2%;
+    padding-right: 1%;
+  }
+  .searchResults {
+    background-color: blanchedalmond;
+    margin: 0;
+    padding: 0;
+    height: 100%;
   }
 
   .reading {
@@ -24,6 +41,10 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
+  }
+
+  .searchButton {
+    position: fixed;
   }
 
   .currentBook {
