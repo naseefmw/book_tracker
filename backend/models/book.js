@@ -5,7 +5,7 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  api_id: {
+  apiId: {
     type: String,
     required: true,
   },

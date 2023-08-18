@@ -21,7 +21,7 @@ booksRouter.post('/', async (request, response) => {
 
   const book = new Book({
     title: body.title,
-    api_id: body.api_id,
+    apiId: body.apiId,
     author: body.author,
     status: body.status || 'planning',
     image: body.image,
@@ -52,10 +52,9 @@ booksRouter.delete('/:id', async (request, response) => {
 
 booksRouter.put('/:id', async (request, response) => {
   const body = request.body
-
-  const book = Book({
+  const book = {
     title: body.title,
-    api_id: body.api_id,
+    apiId: body.apiId,
     author: body.author,
     status: body.status,
     image: body.image,
@@ -64,8 +63,7 @@ booksRouter.put('/:id', async (request, response) => {
     startDate: body.startDate,
     endDate: body.endDate,
     rating: body.rating,
-    user: user.id,
-  })
+  }
   const updatedBook = await Book.findByIdAndUpdate(request.params.id, book, {
     new: true,
   })
