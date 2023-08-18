@@ -1,18 +1,19 @@
 import googleBooksService from '../services/googleBooks'
-import Button from '@mui/joy/Button'
 import Modal from '@mui/joy/Modal'
 import ModalClose from '@mui/joy/ModalClose'
-import Typography from '@mui/joy/Typography'
 import Sheet from '@mui/joy/Sheet'
 import Input from '@mui/joy/Input'
 import { useState } from 'react'
-import SearchList from './SearchList'
+import List from '@mui/joy/List'
+import ListItem from '@mui/joy/ListItem'
+import bookService from '../services/books'
 
 const Search = ({ open, setOpen }) => {
   const [searchEntry, setSearchEntry] = useState('')
   const [searchResults, setSearchResults] = useState([])
 
   const handleSearch = async (event) => {
+    event.preventDefault()
     if (searchEntry.length > 3) {
       try {
         const results = await googleBooksService.getBooks(searchEntry)
@@ -21,6 +22,25 @@ const Search = ({ open, setOpen }) => {
         console.log(exception)
       }
     }
+  }
+
+  const addBook = async (volume) => {
+    console.log(volume)
+    const bookToAdd = {
+      title: volume.volumeInfo.title,
+      apiId: volume.id,
+      author: volume.volumeInfo.authors,
+      status: 'planning',
+      image: volume.volumeInfo.imageLinks.smallThumbnail,
+      pageCount: volume.volumeInfo.pageCount,
+      currentPage: 0,
+      startDate: new Date().toLocaleDateString(),
+      endDate: new Date().toLocaleDateString(),
+      rating: 0,
+    }
+    await bookService.create(bookToAdd).then()
+    setSearchResults([])
+    setOpen(false)
   }
 
   return (
@@ -59,23 +79,25 @@ const Search = ({ open, setOpen }) => {
               bgcolor: 'background.surface',
             }}
           />
-          <Typography
-            component="h2"
-            id="modal-title"
-            level="h4"
-            textColor="inherit"
-            fontWeight="lg"
-            mb={1}
-          >
+          <form onSubmit={handleSearch}>
             <Input
               placeholder="Search Books..."
               variant="outlined"
               onChange={({ target }) => setSearchEntry(target.value)}
             />
-            <button onClick={handleSearch}>search</button>
-          </Typography>
+            <button type="submit">search</button>
+          </form>
 
-          <SearchList results={searchResults} />
+          <List>
+            {searchResults.map((r) => (
+              <ListItem key={r.id}>
+                <>
+                  {r.volumeInfo.title}
+                  <button onClick={() => addBook(r)}>Add to Planning</button>
+                </>
+              </ListItem>
+            ))}
+          </List>
         </Sheet>
       </Modal>
     </>

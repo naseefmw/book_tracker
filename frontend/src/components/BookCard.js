@@ -2,7 +2,6 @@ import './style.css'
 import { useState } from 'react'
 import IconButton from '@mui/joy/IconButton'
 import EditIcon from '@mui/icons-material/Edit'
-import { colors } from '@mui/material'
 import BookInfoModal from './BookInfoModal'
 
 const BookCard = ({ book }) => {
