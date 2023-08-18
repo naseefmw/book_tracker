@@ -17,10 +17,12 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
   const [status, setStatus] = useState(book.status)
   const [page, setPage] = useState(book.currentPage)
   const [startDate, setStartDate] = useState(
-    book.startDate.toString().slice(0, 10)
+    book.startDate ? book.startDate.toString().slice(0, 10) : ''
   )
   const [rating, setRating] = useState(book.rating)
-  const [endDate, setEndDate] = useState(book.endDate.toString().slice(0, 10))
+  const [endDate, setEndDate] = useState(
+    book.endDate ? book.endDate.toString().slice(0, 10) : ''
+  )
   const handleSubmit = async (event) => {
     const bookUpdated = {
       title: book.title,

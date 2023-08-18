@@ -7,6 +7,7 @@ import Section from './Section'
 const Main = () => {
   const [bookList, setBookList] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
+  //to trigger rerender
   const [currentBook, setCurrentBook] = useState(null)
 
   useEffect(() => {

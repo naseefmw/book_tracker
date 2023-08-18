@@ -25,10 +25,10 @@ booksRouter.post('/', async (request, response) => {
     author: body.author,
     status: body.status || 'planning',
     image: body.image,
-    pageCount: body.pageCount,
+    pageCount: body.pageCount || 500,
     currentPage: body.currentPage || 0,
-    startDate: body.startDate,
-    endDate: body.endDate,
+    startDate: body.startDate || '',
+    endDate: body.endDate || '',
     rating: body.rating || 0,
     user: user.id,
   })

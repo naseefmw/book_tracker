@@ -33,8 +33,6 @@ const Search = ({ open, setOpen }) => {
       image: volume.volumeInfo.imageLinks.smallThumbnail,
       pageCount: volume.volumeInfo.pageCount,
       currentPage: 0,
-      startDate: new Date().toLocaleDateString(),
-      endDate: new Date().toLocaleDateString(),
       rating: 0,
     }
     await bookService.create(bookToAdd).then()
