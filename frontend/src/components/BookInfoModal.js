@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '@mui/joy/Button'
 import FormControl from '@mui/joy/FormControl'
 import FormLabel from '@mui/joy/FormLabel'
@@ -21,8 +21,7 @@ const BookInfoModal = ({ book, open, setOpen }) => {
   )
   const [rating, setRating] = useState(book.rating)
   const [endDate, setEndDate] = useState(book.endDate.toString().slice(0, 10))
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleSubmit = async (event) => {
     const bookUpdated = {
       title: book.title,
       apiId: book.apiId,
@@ -36,10 +35,11 @@ const BookInfoModal = ({ book, open, setOpen }) => {
       rating: rating,
       user: book.user.id,
     }
-    bookService.update(book.id, bookUpdated).then()
+    await bookService.update(book.id, bookUpdated).then()
+    setOpen(false)
   }
+
   const handleClose = (event) => {
-    event.preventDefault()
     setPage(book.currentPage)
     setStatus(book.status)
     setStartDate(book.startDate.toString().slice(0, 10))
@@ -47,81 +47,79 @@ const BookInfoModal = ({ book, open, setOpen }) => {
     setRating(book.rating)
     setOpen(false)
   }
-
+  const handleSelect = (event, newValue) => {
+    setStatus(newValue)
+  }
   return (
     <Modal open={open} onClose={handleClose}>
       <ModalDialog sx={{ width: 800 }}>
         <BookInfoHeader book={book} />
-        <form onSubmit={handleSubmit}>
-          <Stack spacing={2}>
-            <FormControl>
-              <FormLabel>Status</FormLabel>
-              <Select
-                value={status}
-                onChange={({ target }) => setStatus(target.value)}
-              >
-                <Option value="reading">Reading</Option>
-                <Option value="finished">Finished</Option>
-                <Option value="planning">Planning</Option>
-              </Select>
-            </FormControl>
-            <FormControl>
-              <FormLabel>current Page</FormLabel>
-              <Input
-                type="number"
-                value={page}
-                onChange={({ target }) => setPage(target.value)}
-                slotProps={{
-                  input: {
-                    min: 0,
-                    max: book.pageCount,
-                    step: 1,
-                  },
-                }}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Start Date</FormLabel>
-              <Input
-                type="date"
-                value={startDate}
-                onChange={({ target }) => setStartDate(target.value)}
-                slotProps={{
-                  input: {
-                    max: endDate,
-                  },
-                }}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Finished Date</FormLabel>
-              <Input
-                type="date"
-                value={endDate}
-                onChange={({ target }) => setEndDate(target.value)}
-                slotProps={{
-                  input: {
-                    min: startDate,
-                  },
-                }}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Rating</FormLabel>
-              <Slider
-                value={rating}
-                onChange={({ target }) => setRating(target.value)}
-                valueLabelDisplay="on"
-                variant="solid"
-                min={0}
-                max={10}
-                step={1}
-              />
-            </FormControl>
-            <Button>Delete</Button>
-            <Button type="submit">Submit</Button>
-          </Stack>
-        </form>
+
+        <Stack spacing={2}>
+          <FormControl>
+            <FormLabel>Status</FormLabel>
+            <Select value={status} onChange={handleSelect}>
+              <Option value="reading">Reading</Option>
+              <Option value="finished">Finished</Option>
+              <Option value="planning">Planning</Option>
+            </Select>
+          </FormControl>
+          <FormControl>
+            <FormLabel>current Page</FormLabel>
+            <Input
+              type="number"
+              value={page}
+              onChange={({ target }) => setPage(target.value)}
+              slotProps={{
+                input: {
+                  min: 0,
+                  max: book.pageCount,
+                  step: 1,
+                },
+              }}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Start Date</FormLabel>
+            <Input
+              type="date"
+              value={startDate}
+              onChange={({ target }) => setStartDate(target.value)}
+              slotProps={{
+                input: {
+                  max: endDate,
+                },
+              }}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Finished Date</FormLabel>
+            <Input
+              type="date"
+              value={endDate}
+              onChange={({ target }) => setEndDate(target.value)}
+              slotProps={{
+                input: {
+                  min: startDate,
+                },
+              }}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Rating</FormLabel>
+            <Slider
+              value={rating}
+              onChange={({ target }) => setRating(target.value)}
+              valueLabelDisplay="on"
+              variant="solid"
+              min={0}
+              max={10}
+              step={1}
+            />
+          </FormControl>
+          <Button>Delete</Button>
+          <Button onClick={handleSubmit}>Submit</Button>
+        </Stack>
       </ModalDialog>
     </Modal>
   )

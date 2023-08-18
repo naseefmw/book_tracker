@@ -1,16 +1,12 @@
 import Section from './Section'
 const SectionList = ({ books }) => {
-  const reading = books.filter((book) => book.status === 'reading')
-  const finished = books.filter((book) => book.status === 'finished')
-  const planning = books.filter((book) => book.status === 'planning')
-
   return (
     <>
-      <Section books={reading} />
+      <Section books={books.filter((book) => book.status === 'reading')} />
       <h2>Finished</h2>
-      <Section books={finished} />
+      <Section books={books.filter((book) => book.status === 'finished')} />
       <h2>Planning</h2>
-      <Section books={planning} />
+      <Section books={books.filter((book) => book.status === 'planning')} />
     </>
   )
 }

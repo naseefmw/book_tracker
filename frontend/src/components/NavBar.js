@@ -1,5 +1,3 @@
-import login from '../services/login'
-
 import { useState } from 'react'
 import './style.css'
 import Search from './Search'

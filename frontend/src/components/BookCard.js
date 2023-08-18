@@ -21,7 +21,9 @@ const BookCard = ({ book }) => {
               <EditIcon />
             </IconButton>
           </div>
-          <h6>{book.author}</h6>
+          {book.author.map((a) => (
+            <h6 key={a}>{a}</h6>
+          ))}
           <progress max={book.pageCount} value={book.currentPage} />
         </div>
       </div>

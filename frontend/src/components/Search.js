@@ -13,11 +13,13 @@ const Search = ({ open, setOpen }) => {
   const [searchResults, setSearchResults] = useState([])
 
   const handleSearch = async (event) => {
-    setSearchEntry(event.target.value)
     if (searchEntry.length > 3) {
-      await googleBooksService
-        .getBooks(searchEntry)
-        .then((books) => setSearchResults(books.items))
+      try {
+        const results = await googleBooksService.getBooks(searchEntry)
+        setSearchResults(results.items)
+      } catch (exception) {
+        console.log(exception)
+      }
     }
   }
 
@@ -68,8 +70,9 @@ const Search = ({ open, setOpen }) => {
             <Input
               placeholder="Search Books..."
               variant="outlined"
-              onChange={handleSearch}
+              onChange={({ target }) => setSearchEntry(target.value)}
             />
+            <button onClick={handleSearch}>search</button>
           </Typography>
 
           <SearchList results={searchResults} />
