@@ -13,7 +13,7 @@ import Select from '@mui/joy/Select'
 import Option from '@mui/joy/Option'
 import Slider from '@mui/joy/Slider'
 
-const BookInfoModal = ({ book, open, setOpen }) => {
+const BookInfoModal = ({ book, open, setOpen, setBook }) => {
   const [status, setStatus] = useState(book.status)
   const [page, setPage] = useState(book.currentPage)
   const [startDate, setStartDate] = useState(
@@ -36,6 +36,7 @@ const BookInfoModal = ({ book, open, setOpen }) => {
       user: book.user.id,
     }
     await bookService.update(book.id, bookUpdated).then()
+    setBook(bookUpdated.id)
     setOpen(false)
   }
 

@@ -25,7 +25,6 @@ const Search = ({ open, setOpen }) => {
   }
 
   const addBook = async (volume) => {
-    console.log(volume)
     const bookToAdd = {
       title: volume.volumeInfo.title,
       apiId: volume.id,

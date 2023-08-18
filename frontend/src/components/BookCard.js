@@ -4,7 +4,7 @@ import IconButton from '@mui/joy/IconButton'
 import EditIcon from '@mui/icons-material/Edit'
 import BookInfoModal from './BookInfoModal'
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, setBook }) => {
   const [open, setOpen] = useState(false)
   return (
     <>
@@ -26,7 +26,12 @@ const BookCard = ({ book }) => {
           <progress max={book.pageCount} value={book.currentPage} />
         </div>
       </div>
-      <BookInfoModal open={open} setOpen={setOpen} book={book} />
+      <BookInfoModal
+        open={open}
+        setOpen={setOpen}
+        book={book}
+        setBook={setBook}
+      />
     </>
   )
 }
