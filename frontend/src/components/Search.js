@@ -6,6 +6,7 @@ import Typography from '@mui/joy/Typography'
 import Sheet from '@mui/joy/Sheet'
 import Input from '@mui/joy/Input'
 import { useState } from 'react'
+import SearchList from './SearchList'
 
 const Search = ({ open, setOpen }) => {
   const [searchEntry, setSearchEntry] = useState('')
@@ -28,7 +29,13 @@ const Search = ({ open, setOpen }) => {
           setOpen(false)
           setSearchResults([])
         }}
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'start',
+          mt: 5,
+          position: 'fixed',
+        }}
       >
         <Sheet
           variant="outlined"
@@ -64,11 +71,8 @@ const Search = ({ open, setOpen }) => {
               onChange={handleSearch}
             />
           </Typography>
-          <Typography id="modal-desc" textColor="text.tertiary">
-            {searchResults.map((r) => (
-              <li key={r.id}>{r.volumeInfo.title}</li>
-            ))}
-          </Typography>
+
+          <SearchList results={searchResults} />
         </Sheet>
       </Modal>
     </>
