@@ -1,7 +1,6 @@
 import './style.css'
 
 const BookInfoHeader = ({ book }) => {
-  console.log(book)
   return (
     <div className="bookinfoheader">
       <img src={book.image} alt="book cover" />

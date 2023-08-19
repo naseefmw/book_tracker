@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Button from '@mui/joy/Button'
 import FormControl from '@mui/joy/FormControl'
 import FormLabel from '@mui/joy/FormLabel'
@@ -6,7 +6,6 @@ import Input from '@mui/joy/Input'
 import Modal from '@mui/joy/Modal'
 import ModalDialog from '@mui/joy/ModalDialog'
 import Stack from '@mui/joy/Stack'
-import Typography from '@mui/joy/Typography'
 import bookService from '../services/books'
 import BookInfoHeader from './BookInfoHeader'
 import Select from '@mui/joy/Select'
@@ -53,6 +52,14 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
   const handleSelect = (event, newValue) => {
     setStatus(newValue)
   }
+
+  const handleDelete = async (event) => {
+    console.log(book)
+    await bookService.remove(book.id)
+    setBook(page) //to trigger rerender
+    setOpen(false)
+  }
+
   return (
     <Modal open={open} onClose={handleClose}>
       <ModalDialog sx={{ width: 800 }}>
@@ -120,7 +127,7 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
               step={1}
             />
           </FormControl>
-          <Button>Delete</Button>
+          <Button onClick={handleDelete}>Delete</Button>
           <Button onClick={handleSubmit}>Submit</Button>
         </Stack>
       </ModalDialog>
