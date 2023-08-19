@@ -3,6 +3,10 @@ import loginService from '../services/login'
 import registerService from '../services/register'
 import bookService from '../services/books'
 import Notification from './Notification'
+import Input from '@mui/joy/Input'
+import loginImage from '../assets/pic1.svg'
+import Button from '@mui/joy/Button'
+
 import './style.css'
 
 const Login = ({ setUser }) => {
@@ -74,74 +78,97 @@ const Login = ({ setUser }) => {
   }
 
   const loginForm = () => (
-    <form onSubmit={handleLogin} className="login">
-      username:
-      <input
-        type="text"
-        value={username}
-        name="Username"
-        onChange={({ target }) => setUsername(target.value)}
-      />
-      password:
-      <input
-        type="password"
-        value={password}
-        name="Password"
-        onChange={({ target }) => setPassword(target.value)}
-      />
-      <button type="submit">login</button>
-      <button
-        onClick={() => {
-          setNewUser(true)
-          setUsername('')
-          setPassword('')
-        }}
-      >
-        sign up
-      </button>
-    </form>
+    <div className="loginformdiv">
+      <h1 className="logo">Read Sync</h1>
+      <form onSubmit={handleLogin}>
+        <Notification message={message} type={type} />
+        <h1>Sign in</h1>
+        <div className="lightText">
+          Welcome back! Please enter your details.
+        </div>
+        Username
+        <Input
+          type="text"
+          placeholder="Username"
+          value={username}
+          name="Username"
+          onChange={({ target }) => setUsername(target.value)}
+        />
+        Password
+        <Input
+          type="password"
+          placeholder="Password"
+          value={password}
+          name="Password"
+          onChange={({ target }) => setPassword(target.value)}
+        />
+        <Button type="submit">Sign in</Button>
+        <div className="lightText">
+          Don't have account?
+          <Button
+            variant="plain"
+            size="sm"
+            onClick={() => {
+              setNewUser(true)
+              setUsername('')
+              setPassword('')
+            }}
+          >
+            Sign up
+          </Button>
+        </div>
+      </form>
+    </div>
   )
 
   const registerForm = () => (
-    <form onSubmit={handleRegister} className="login">
-      name:
-      <input
+    <form onSubmit={handleRegister}>
+      Name
+      <Input
         type="text"
+        placeholder="Username"
         value={name}
         name="Name"
         onChange={({ target }) => setName(target.value)}
       />
-      username:
-      <input
+      Username
+      <Input
         type="text"
         value={username}
         name="Username"
         onChange={({ target }) => setUsername(target.value)}
       />
-      password:
-      <input
+      Password
+      <Input
         type="password"
+        placeholder="Password"
         value={password}
         name="Password"
         onChange={({ target }) => setPassword(target.value)}
       />
-      <button type="submit">register</button>
-      <button
-        onClick={() => {
-          setNewUser(false)
-          setUsername('')
-          setPassword('')
-          setName('')
-        }}
-      >
-        login
-      </button>
+      <button type="submit">Sign up</button>
+      <div>
+        Already have an account?{' '}
+        <button
+          onClick={() => {
+            setNewUser(false)
+            setUsername('')
+            setPassword('')
+            setName('')
+          }}
+        >
+          Sign in
+        </button>
+      </div>
     </form>
   )
   return (
-    <div className="loginBackground">
-      <Notification message={message} type={type} />
-      {newUser === false ? loginForm() : registerForm()}
+    <div className="loginRoot">
+      <img src={loginImage} alt="img" />
+
+      <div className="login">
+        {newUser === false ? loginForm() : registerForm()}
+      </div>
     </div>
   )
 }

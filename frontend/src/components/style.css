@@ -1,18 +1,58 @@
+/*Desktop*/
 @media (min-width: 700px) {
   html {
     scroll-behavior: smooth;
+    font-family: 'Roboto';
+  }
+  @font-face {
+    font-family: 'Pacifico';
+    src: local('Pacifico'),
+      url(../assets/Pacifico-Regular.ttf) format('truetype');
   }
 
-  .loginBackground {
+  /*Login Page*/
+  .logo {
+    font-family: 'Pacifico';
+  }
+  .loginRoot {
     display: flex;
+    flex-direction: row;
     height: 100vh;
   }
+
+  .loginRoot img {
+    width: fit-content;
+  }
+
   .login {
-    margin: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    height: fit-content;
+    justify-content: center;
+  }
+
+  .loginformdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+  }
+
+  .loginformdiv form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 56px;
+  }
+
+  .lightText {
+    text-align: center;
+    font-size: medium;
+    color: rgb(140, 140, 140);
   }
 
   .navbar {

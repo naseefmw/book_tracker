@@ -14,7 +14,12 @@ const Notification = ({ type, message }) => {
     ]
     return (
       <Alert
-        sx={{ alignItems: 'flex-start' }}
+        sx={{
+          alignItems: 'flex-start',
+          width: '300px',
+          position: 'absolute',
+          bottom: '15%',
+        }}
         startDecorator={alertType[type].icon}
         variant="soft"
         color={alertType[type].color}
