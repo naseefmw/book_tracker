@@ -2,6 +2,7 @@ import { useState } from 'react'
 import loginService from '../services/login'
 import registerService from '../services/register'
 import bookService from '../services/books'
+import Notification from './Notification'
 
 const Login = ({ setUser }) => {
   const [newUser, setNewUser] = useState(false)
@@ -9,6 +10,7 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
   const [message, setMessage] = useState(null)
+  const [type, setType] = useState(2)
 
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -26,11 +28,11 @@ const Login = ({ setUser }) => {
       setPassword('')
       setName('')
     } catch (exception) {
-      setMessage('wrong username or password')
-      console.log(message)
+      setType(2)
+      setMessage('Wrong username or password!')
       setTimeout(() => {
         setMessage(null)
-      }, 5000)
+      }, 3000)
     }
   }
 
@@ -46,13 +48,27 @@ const Login = ({ setUser }) => {
       setPassword('')
       setName('')
       setNewUser(false)
-    } catch (exception) {
-      setMessage('Validation error or already exists')
-      console.log(message)
+      setType(0)
+      setMessage('Username successfully registered!')
+      setTimeout(() => {
+        setMessage(null)
+      }, 3000)
+    } catch (error) {
+      setType(2)
+      if (error.response.data.error.includes('allowed length (3)')) {
+        setMessage('Username is too short! Must have at least 3 characters')
+      } else if (error.response.data.error.includes('password length')) {
+        setMessage('Password is too short! Must have at least 8 characters')
+      } else if (error.response.data.error.includes('unique')) {
+        setType(1)
+        setMessage('Username already exists')
+      } else {
+        setMessage(error.response.data.error)
+      }
 
       setTimeout(() => {
         setMessage(null)
-      }, 5000)
+      }, 3000)
     }
   }
 
@@ -74,7 +90,15 @@ const Login = ({ setUser }) => {
         onChange={({ target }) => setPassword(target.value)}
       />
       <button type="submit">login</button>
-      <button onClick={() => setNewUser(true)}>sign up</button>
+      <button
+        onClick={() => {
+          setNewUser(true)
+          setUsername('')
+          setPassword('')
+        }}
+      >
+        sign up
+      </button>
     </form>
   )
 
@@ -106,7 +130,12 @@ const Login = ({ setUser }) => {
       <button type="submit">register</button>
     </form>
   )
-  return <div>{newUser === false ? loginForm() : registerForm()}</div>
+  return (
+    <div>
+      <Notification message={message} type={type} />
+      {newUser === false ? loginForm() : registerForm()}
+    </div>
+  )
 }
 
 export default Login
