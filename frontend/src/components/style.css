@@ -8,160 +8,156 @@ html {
   src: local('Pacifico'), url(../assets/Pacifico-Regular.ttf) format('truetype');
 }
 
-@media (min-width: 750px) {
-  /*Login Page*/
-  .logo {
-    font-family: 'Pacifico';
-  }
-  .loginRoot {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-  }
-
-  .loginRoot img {
-    width: 50%;
-  }
-
-  .login {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .loginformdiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-  }
-
-  .loginformdiv form {
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px;
-    height: 400px;
-    margin-bottom: 56px;
-  }
-
-  .lightText {
-    text-align: center;
-    font-size: medium;
-    color: rgb(140, 140, 140);
-  }
-
-  .navbar {
-    padding: 0;
-    margin: 0;
-    position: fixed;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .navbar h1 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  .navbar h3 {
-    margin: 0;
-    padding: 0;
-    margin-top: 2%;
-    padding-left: 1%;
-  }
-  .searchBar {
-    margin: 0;
-    padding: 0;
-    margin-top: 2%;
-    padding-right: 1%;
-  }
-  .searchResults {
-    background-color: blanchedalmond;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  .reading {
-    margin: auto;
-    padding: 1%;
-    padding-top: 5%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  .searchButton {
-    position: fixed;
-  }
-
-  .currentBook {
-    min-width: 45%;
-    background-color: black;
-    margin: 1% 1.8%;
-    padding: 0.5%;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    border: 1px solid;
-    height: 110px;
-  }
-
-  .bookCover {
-    padding: 0;
-    max-height: 100px;
-    width: 67px;
-    margin: 1%;
-    border-radius: 10px;
-    border: 1px;
-  }
-
-  .bookInfo {
-    max-height: 150px;
-    display: flex;
-    text-align: left;
-    margin: 1%;
-    padding: 0;
-    justify-content: space-evenly;
-
-    flex-direction: column;
-    flex: 3;
-  }
-
-  .bookInfo progress {
-    width: auto;
-    margin: 0 2%;
-  }
-  .title {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 2%;
-  }
-
-  .bookInfo h2,
-  h6 {
-    margin: 0;
-    padding: 0;
-    margin: 0 2%;
-    color: white;
-  }
-
-  .bookinfoheader {
-    display: flex;
-    flex-direction: row;
-  }
+/*Login Page*/
+.logo {
+  font-family: 'Pacifico';
+}
+.loginRoot {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
 }
 
-@media (max-width: 749px) {
+.loginRoot img {
+  width: 50%;
+}
+
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginformdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+
+.loginformdiv form {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 400px;
+  margin-bottom: 56px;
+}
+
+.lightText {
+  text-align: center;
+  font-size: medium;
+  color: rgb(140, 140, 140);
+}
+
+/**/
+.navbar {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navbar h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.navbar h3 {
+  margin: 0;
+  padding: 0;
+  margin-top: 2%;
+  padding-left: 1%;
+}
+.searchBar {
+  margin: 0;
+  padding: 0;
+  margin-top: 2%;
+  padding-right: 1%;
+}
+.searchResults {
+  background-color: blanchedalmond;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.reading {
+  margin: auto;
+  padding: 1%;
+  padding-top: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.searchButton {
+  position: fixed;
+}
+
+.currentBook {
+  min-width: 45%;
+  background-color: black;
+  margin: 1% 1.8%;
+  padding: 0.5%;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 1px solid;
+  height: 110px;
+}
+
+.bookCover {
+  padding: 0;
+  max-height: 100px;
+  width: 67px;
+  margin: 1%;
+  border-radius: 10px;
+  border: 1px;
+}
+
+.bookInfo {
+  max-height: 150px;
+  display: flex;
+  text-align: left;
+  margin: 1%;
+  padding: 0;
+  justify-content: space-evenly;
+
+  flex-direction: column;
+  flex: 3;
+}
+
+.bookInfo progress {
+  width: auto;
+  margin: 0 2%;
+}
+.title {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2%;
+}
+
+.bookInfo h2,
+h6 {
+  margin: 0;
+  padding: 0;
+  margin: 0 2%;
+  color: white;
+}
+
+.bookinfoheader {
+  display: flex;
+  flex-direction: row;
 }
 
 .background {
@@ -171,4 +167,12 @@ html {
   height: 100%;
   min-height: 100vh;
   background-color: white;
+}
+
+@media (max-width: 749px) {
+  /*Login Page*/
+
+  .loginRoot img {
+    width: 0%;
+  }
 }
