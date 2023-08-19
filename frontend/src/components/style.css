@@ -3,6 +3,18 @@
     scroll-behavior: smooth;
   }
 
+  .loginBackground {
+    display: flex;
+    height: 100vh;
+  }
+  .login {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+  }
+
   .navbar {
     padding: 0;
     margin: 0;

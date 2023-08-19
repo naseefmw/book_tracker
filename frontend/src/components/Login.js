@@ -3,6 +3,7 @@ import loginService from '../services/login'
 import registerService from '../services/register'
 import bookService from '../services/books'
 import Notification from './Notification'
+import './style.css'
 
 const Login = ({ setUser }) => {
   const [newUser, setNewUser] = useState(false)
@@ -73,7 +74,7 @@ const Login = ({ setUser }) => {
   }
 
   const loginForm = () => (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className="login">
       username:
       <input
         type="text"
@@ -81,7 +82,6 @@ const Login = ({ setUser }) => {
         name="Username"
         onChange={({ target }) => setUsername(target.value)}
       />
-      <br />
       password:
       <input
         type="password"
@@ -103,7 +103,7 @@ const Login = ({ setUser }) => {
   )
 
   const registerForm = () => (
-    <form onSubmit={handleRegister}>
+    <form onSubmit={handleRegister} className="login">
       name:
       <input
         type="text"
@@ -111,7 +111,6 @@ const Login = ({ setUser }) => {
         name="Name"
         onChange={({ target }) => setName(target.value)}
       />
-      <br />
       username:
       <input
         type="text"
@@ -119,7 +118,6 @@ const Login = ({ setUser }) => {
         name="Username"
         onChange={({ target }) => setUsername(target.value)}
       />
-      <br />
       password:
       <input
         type="password"
@@ -128,10 +126,20 @@ const Login = ({ setUser }) => {
         onChange={({ target }) => setPassword(target.value)}
       />
       <button type="submit">register</button>
+      <button
+        onClick={() => {
+          setNewUser(false)
+          setUsername('')
+          setPassword('')
+          setName('')
+        }}
+      >
+        login
+      </button>
     </form>
   )
   return (
-    <div>
+    <div className="loginBackground">
       <Notification message={message} type={type} />
       {newUser === false ? loginForm() : registerForm()}
     </div>
