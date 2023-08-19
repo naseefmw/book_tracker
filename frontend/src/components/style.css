@@ -85,7 +85,7 @@ html {
   justify-content: space-between;
 }
 
-.secondbar h3 {
+.leftbuttons {
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -104,11 +104,29 @@ html {
   font-size: larger;
 }
 
-.searchResults {
-  background-color: blanchedalmond;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+/*Search*/
+.searchbar {
+  gap: 2px;
+  display: flex;
+  flex-direction: row;
+}
+
+.listitem {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.listdetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.listsubtext {
+  font-size: 12px;
 }
 
 .booklist {

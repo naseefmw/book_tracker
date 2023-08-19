@@ -7,6 +7,10 @@ import { useState } from 'react'
 import List from '@mui/joy/List'
 import ListItem from '@mui/joy/ListItem'
 import bookService from '../services/books'
+import { IconButton } from '@mui/joy'
+import SearchIcon from '@mui/icons-material/Search'
+import SearchListItem from './SearchListItem'
+import ListDivider from '@mui/joy/ListDivider'
 
 const Search = ({ open, setOpen, bookList }) => {
   const [searchEntry, setSearchEntry] = useState('')
@@ -59,6 +63,7 @@ const Search = ({ open, setOpen, bookList }) => {
           alignItems: 'start',
           mt: 5,
           position: 'fixed',
+          overflowY: 'scroll',
         }}
       >
         <Sheet
@@ -71,33 +76,24 @@ const Search = ({ open, setOpen, bookList }) => {
             boxShadow: 'lg',
           }}
         >
-          <ModalClose
-            variant="outlined"
-            sx={{
-              top: 'calc(-1/4 * var(--IconButton-size))',
-              right: 'calc(-1/4 * var(--IconButton-size))',
-              boxShadow: '0 2px 12px 0 rgba(0 0 0 / 0.2)',
-              borderRadius: '50%',
-              bgcolor: 'background.surface',
-            }}
-          />
-          <form onSubmit={handleSearch}>
+          <form onSubmit={handleSearch} className="searchbar">
             <Input
+              fullWidth
               placeholder="Search Books..."
               variant="outlined"
               onChange={({ target }) => setSearchEntry(target.value)}
             />
-            <button type="submit">search</button>
+            <IconButton type="submit" variant="plain">
+              <SearchIcon />
+            </IconButton>
           </form>
 
           <List>
             {searchResults.map((r) => (
-              <ListItem key={r.id}>
-                <>
-                  {r.volumeInfo.title}
-                  <button onClick={() => addBook(r)}>Add to Planning</button>
-                </>
-              </ListItem>
+              <>
+                <SearchListItem key={r.id} book={r} handle={addBook} />
+                <ListDivider inset="gutter" />
+              </>
             ))}
           </List>
         </Sheet>

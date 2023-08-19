@@ -41,7 +41,7 @@ const Main = ({ setUser }) => {
       <div className="navbar">
         <p>Read Sync</p>
         <div className="secondbar">
-          <h3>
+          <div className="leftbuttons">
             <Button variant="plain">
               <a href="#reading">Reading</a>
             </Button>
@@ -51,7 +51,7 @@ const Main = ({ setUser }) => {
             <Button variant="plain">
               <a href="#planning">Planning</a>
             </Button>
-          </h3>
+          </div>
 
           <div className="buttons">
             <Button
