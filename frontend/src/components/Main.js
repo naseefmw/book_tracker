@@ -25,7 +25,10 @@ const Main = ({ setUser }) => {
     //NavBar and BookList
     <div className="background">
       <div className="navbar">
-        <h3>Reading | Finished | Planning</h3>
+        <h3>
+          <a href="#reading">Reading</a> | <a href="#finished">Finished</a> |
+          <a href="#planning">Planning</a>
+        </h3>
         <h1>Book Tracker</h1>
         <div className="searchBar">
           <button onClick={() => setModalOpen(true)}>search</button>
@@ -33,17 +36,17 @@ const Main = ({ setUser }) => {
           <button onClick={handleLogout}>logout</button>
         </div>
       </div>
-      <h2>Currently Reading</h2>
+      <h2 id="reading">Currently Reading</h2>
       <Section
         books={bookList.filter((book) => book.status === 'reading')}
         setCurrentBook={setCurrentBook}
       />
-      <h2>Finished</h2>
+      <h2 id="finished">Finished</h2>
       <Section
         books={bookList.filter((book) => book.status === 'finished')}
         setCurrentBook={setCurrentBook}
       />
-      <h2>Planning</h2>
+      <h2 id="planning">Planning</h2>
       <Section
         books={bookList.filter((book) => book.status === 'planning')}
         setCurrentBook={setCurrentBook}
