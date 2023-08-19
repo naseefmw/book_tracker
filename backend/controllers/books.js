@@ -3,7 +3,13 @@ const Book = require('../models/book')
 
 booksRouter.get('/', async (request, response) => {
   const books = await Book.find({}).populate('user', { username: 1, name: 1 })
-  response.json(books)
+  response.json(books[0])
+})
+
+booksRouter.get('/shelf', async (request, response) => {
+  const user = request.user
+  const books = await Book.find({}).populate('user', { username: 1, name: 1 })
+  response.json(books.filter((book) => book.user.id === user.id))
 })
 
 booksRouter.get('/:id', async (request, response) => {

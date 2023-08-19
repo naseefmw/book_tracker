@@ -8,7 +8,10 @@ const setToken = (newToken) => {
 }
 
 const getAll = () => {
-  const request = axios.get(baseUrl)
+  const config = {
+    headers: { Authorization: token },
+  }
+  const request = axios.get(`${baseUrl}/shelf`, config)
   return request.then((response) => response.data)
 }
 
