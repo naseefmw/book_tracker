@@ -1,15 +1,14 @@
 /*Desktop*/
-@media (min-width: 700px) {
-  html {
-    scroll-behavior: smooth;
-    font-family: 'Roboto';
-  }
-  @font-face {
-    font-family: 'Pacifico';
-    src: local('Pacifico'),
-      url(../assets/Pacifico-Regular.ttf) format('truetype');
-  }
+html {
+  scroll-behavior: smooth;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: local('Pacifico'), url(../assets/Pacifico-Regular.ttf) format('truetype');
+}
 
+@media (min-width: 750px) {
   /*Login Page*/
   .logo {
     font-family: 'Pacifico';
@@ -21,7 +20,7 @@
   }
 
   .loginRoot img {
-    width: fit-content;
+    width: 50%;
   }
 
   .login {
@@ -162,7 +161,7 @@
   }
 }
 
-@media (max-width: 699px) {
+@media (max-width: 749px) {
 }
 
 .background {

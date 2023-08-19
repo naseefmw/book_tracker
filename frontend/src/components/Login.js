@@ -122,45 +122,52 @@ const Login = ({ setUser }) => {
   )
 
   const registerForm = () => (
-    <form onSubmit={handleRegister}>
-      Name
-      <Input
-        type="text"
-        placeholder="Username"
-        value={name}
-        name="Name"
-        onChange={({ target }) => setName(target.value)}
-      />
-      Username
-      <Input
-        type="text"
-        value={username}
-        name="Username"
-        onChange={({ target }) => setUsername(target.value)}
-      />
-      Password
-      <Input
-        type="password"
-        placeholder="Password"
-        value={password}
-        name="Password"
-        onChange={({ target }) => setPassword(target.value)}
-      />
-      <button type="submit">Sign up</button>
-      <div>
-        Already have an account?{' '}
-        <button
-          onClick={() => {
-            setNewUser(false)
-            setUsername('')
-            setPassword('')
-            setName('')
-          }}
-        >
-          Sign in
-        </button>
-      </div>
-    </form>
+    <div className="loginformdiv">
+      <h1 className="logo">Read Sync</h1>
+      <form onSubmit={handleRegister}>
+        <Notification message={message} type={type} />
+        <h1>Sign up</h1>
+        Name
+        <Input
+          type="text"
+          placeholder="Username"
+          value={name}
+          name="Name"
+          onChange={({ target }) => setName(target.value)}
+        />
+        Username
+        <Input
+          type="text"
+          value={username}
+          name="Username"
+          onChange={({ target }) => setUsername(target.value)}
+        />
+        Password
+        <Input
+          type="password"
+          placeholder="Password"
+          value={password}
+          name="Password"
+          onChange={({ target }) => setPassword(target.value)}
+        />
+        <Button type="submit">Sign up</Button>
+        <div className="lightText">
+          Already have an account?
+          <Button
+            variant="plain"
+            size="sm"
+            onClick={() => {
+              setNewUser(false)
+              setUsername('')
+              setPassword('')
+              setName('')
+            }}
+          >
+            Sign in
+          </Button>
+        </div>
+      </form>
+    </div>
   )
   return (
     <div className="loginRoot">
