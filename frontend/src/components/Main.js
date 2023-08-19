@@ -12,7 +12,20 @@ const Main = ({ setUser }) => {
 
   useEffect(() => {
     bookService.getAll().then((books) => {
-      setBookList(books)
+      //sorting by name
+      setBookList(
+        books.sort((a, b) => {
+          const nameA = a.title.toUpperCase()
+          const nameB = b.title.toUpperCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0
+        })
+      )
       setCurrentBook(null)
     })
   }, [modalOpen, currentBook])
@@ -38,12 +51,16 @@ const Main = ({ setUser }) => {
       </div>
       <h2 id="reading">Currently Reading</h2>
       <Section
-        books={bookList.filter((book) => book.status === 'reading')}
+        books={bookList
+          .filter((book) => book.status === 'reading')
+          .sort((a, b) => b.currentPage - a.currentPage)}
         setCurrentBook={setCurrentBook}
       />
       <h2 id="finished">Finished</h2>
       <Section
-        books={bookList.filter((book) => book.status === 'finished')}
+        books={bookList
+          .filter((book) => book.status === 'finished')
+          .sort((a, b) => b.rating - a.rating)}
         setCurrentBook={setCurrentBook}
       />
       <h2 id="planning">Planning</h2>
