@@ -15,6 +15,10 @@ const App = () => {
     }
   }, [])
 
-  return <>{user === null ? <Login setUser={setUser} /> : <Main />}</>
+  return (
+    <>
+      {user === null ? <Login setUser={setUser} /> : <Main setUser={setUser} />}
+    </>
+  )
 }
 export default App

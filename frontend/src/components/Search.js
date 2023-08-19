@@ -8,7 +8,7 @@ import List from '@mui/joy/List'
 import ListItem from '@mui/joy/ListItem'
 import bookService from '../services/books'
 
-const Search = ({ open, setOpen }) => {
+const Search = ({ open, setOpen, bookList }) => {
   const [searchEntry, setSearchEntry] = useState('')
   const [searchResults, setSearchResults] = useState([])
 
@@ -25,6 +25,11 @@ const Search = ({ open, setOpen }) => {
   }
 
   const addBook = async (volume) => {
+    const booksAdded = bookList.map((b) => b.apiId)
+    if (booksAdded.includes(volume.id)) {
+      console.log('doop')
+      return
+    }
     const bookToAdd = {
       title: volume.volumeInfo.title,
       apiId: volume.id,

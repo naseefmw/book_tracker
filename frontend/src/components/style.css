@@ -56,12 +56,13 @@
     flex-wrap: wrap;
     border-radius: 10px;
     border: 1px solid;
+    height: 110px;
   }
 
   .bookCover {
     padding: 0;
     max-height: 100px;
-    max-width: 100px;
+    width: 67px;
     margin: 1%;
     border-radius: 10px;
     border: 1px;

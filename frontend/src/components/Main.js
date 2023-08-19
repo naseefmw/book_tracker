@@ -4,7 +4,7 @@ import './style.css'
 import Search from './Search'
 import Section from './Section'
 
-const Main = () => {
+const Main = ({ setUser }) => {
   const [bookList, setBookList] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
   //to trigger rerender
@@ -17,6 +17,10 @@ const Main = () => {
     })
   }, [modalOpen, currentBook])
 
+  const handleLogout = (event) => {
+    window.localStorage.clear()
+    setUser(null)
+  }
   return (
     //NavBar and BookList
     <div className="background">
@@ -25,7 +29,8 @@ const Main = () => {
         <h1>Book Tracker</h1>
         <div className="searchBar">
           <button onClick={() => setModalOpen(true)}>search</button>
-          <Search open={modalOpen} setOpen={setModalOpen} />
+          <Search open={modalOpen} setOpen={setModalOpen} bookList={bookList} />
+          <button onClick={handleLogout}>logout</button>
         </div>
       </div>
       <h2>Currently Reading</h2>

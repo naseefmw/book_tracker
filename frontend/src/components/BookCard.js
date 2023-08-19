@@ -1,15 +1,25 @@
 import './style.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import IconButton from '@mui/joy/IconButton'
 import EditIcon from '@mui/icons-material/Edit'
 import BookInfoModal from './BookInfoModal'
+import Skeleton from '@mui/joy/Skeleton'
+import AspectRatio from '@mui/joy/AspectRatio'
 
 const BookCard = ({ book, setBook }) => {
   const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+  })
   return (
     <>
       <div className="currentBook">
-        <img className="bookCover" src={book.image} alt="img" />
+        <img src={book.image} alt="img" className="bookCover" />
+
         <div className="bookInfo">
           <div className="title">
             <h2>{book.title}</h2>
