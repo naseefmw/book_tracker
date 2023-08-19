@@ -44,17 +44,25 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
   const handleClose = (event) => {
     setPage(book.currentPage)
     setStatus(book.status)
-    setStartDate(book.startDate.toString().slice(0, 10))
-    setEndDate(book.endDate.toString().slice(0, 10))
+    setStartDate(book.startDate ? book.startDate.toString().slice(0, 10) : '')
+    setEndDate(book.endDate ? book.endDate.toString().slice(0, 10) : '')
     setRating(book.rating)
     setOpen(false)
   }
   const handleSelect = (event, newValue) => {
     setStatus(newValue)
+    if (newValue === 'reading') {
+      setStartDate(new Date().toISOString().toString().slice(0, 10))
+      setEndDate('')
+    } else if (newValue === 'planning') {
+      setEndDate('')
+    } else if (newValue === 'finished') {
+      setEndDate(new Date().toISOString().toString().slice(0, 10))
+      setPage(book.pageCount)
+    }
   }
 
   const handleDelete = async (event) => {
-    console.log(book)
     await bookService.remove(book.id)
     setBook(page) //to trigger rerender
     setOpen(false)
