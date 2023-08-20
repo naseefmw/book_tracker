@@ -22,6 +22,7 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
   const [endDate, setEndDate] = useState(
     book.endDate ? book.endDate.toString().slice(0, 10) : ''
   )
+
   const handleSubmit = async (event) => {
     const bookUpdated = {
       title: book.title,
@@ -49,6 +50,7 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
     setRating(book.rating)
     setOpen(false)
   }
+
   const handleSelect = (event, newValue) => {
     setStatus(newValue)
     if (newValue === 'reading') {
@@ -70,20 +72,23 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
 
   return (
     <Modal open={open} onClose={handleClose}>
-      <ModalDialog sx={{ width: 800 }}>
+      <ModalDialog sx={{ width: 500, p: 2, gap: 2 }}>
         <BookInfoHeader book={book} />
-
-        <Stack spacing={2}>
+        <div className="bookinforow">
           <FormControl>
             <FormLabel>Status</FormLabel>
-            <Select value={status} onChange={handleSelect}>
+            <Select
+              value={status}
+              onChange={handleSelect}
+              sx={{ width: '225px' }}
+            >
               <Option value="reading">Reading</Option>
               <Option value="finished">Finished</Option>
               <Option value="planning">Planning</Option>
             </Select>
           </FormControl>
           <FormControl>
-            <FormLabel>current Page</FormLabel>
+            <FormLabel>Progress</FormLabel>
             <Input
               type="number"
               value={page}
@@ -97,6 +102,8 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
               }}
             />
           </FormControl>
+        </div>
+        <div className="bookinforow">
           <FormControl>
             <FormLabel>Start Date</FormLabel>
             <Input
@@ -123,21 +130,27 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
               }}
             />
           </FormControl>
-          <FormControl>
-            <FormLabel>Rating</FormLabel>
-            <Slider
-              value={rating}
-              onChange={({ target }) => setRating(target.value)}
-              valueLabelDisplay="on"
-              variant="solid"
-              min={0}
-              max={10}
-              step={1}
-            />
-          </FormControl>
-          <Button onClick={handleDelete}>Delete</Button>
-          <Button onClick={handleSubmit}>Submit</Button>
-        </Stack>
+        </div>
+        <FormControl>
+          <FormLabel>Rating</FormLabel>
+          <Slider
+            value={rating}
+            color="neutral"
+            onChange={({ target }) => setRating(target.value)}
+            valueLabelDisplay="on"
+            min={0}
+            max={10}
+            step={1}
+          />
+        </FormControl>
+        <div className="bookinfobuttons">
+          <Button onClick={handleDelete} color="danger" variant="soft">
+            Delete
+          </Button>
+          <Button variant="soft" fullWidth onClick={handleSubmit}>
+            Submit
+          </Button>
+        </div>
       </ModalDialog>
     </Modal>
   )

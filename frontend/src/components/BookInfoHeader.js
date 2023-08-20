@@ -4,10 +4,10 @@ const BookInfoHeader = ({ book }) => {
   return (
     <div className="bookinfoheader">
       <img src={book.image} alt="book cover" />
-      <div>
+      <div className="headertext">
         <h2>{book.title}</h2>
-        <h3>{book.author}</h3>
-        <h5>pages: {book.pageCount}</h5>
+        <h5>{book.author.join(', ')}</h5>
+        <p>{book.pageCount} pages</p>
       </div>
     </div>
   )

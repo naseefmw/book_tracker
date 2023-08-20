@@ -110,6 +110,10 @@ html {
   margin: 0;
   padding-top: 5%;
 }
+
+.booklist h2 {
+  margin: 1% 0;
+}
 #reading {
   margin-top: 3%;
 }
@@ -225,6 +229,46 @@ html {
 .bookinfoheader {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.bookinfoheader img {
+  min-height: 120px;
+  min-width: 80px;
+  width: 80px;
+  border-radius: 4px;
+}
+
+.headertext {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.headertext h5,
+h2,
+p {
+  margin: 0;
+}
+
+.headertext p {
+  font-size: smaller;
+}
+
+.bookinforow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  gap: 20px;
+}
+.bookinforow input {
+  width: 200px;
+}
+
+.bookinfobuttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 /*Mobile*/
