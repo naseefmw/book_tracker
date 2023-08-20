@@ -6,6 +6,7 @@ const Section = ({ books, setCurrentBook }) => {
       {books.map((book) => (
         <BookCard key={book.id} book={book} setBook={setCurrentBook} />
       ))}
+      {books.length === 0 ? <p>No Books added</p> : null}
     </div>
   )
 }
