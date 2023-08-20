@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.403e955f.css",
+    "main.js": "/static/js/main.3ced2ad0.js",
+    "static/media/Pacifico-Regular.ttf": "/static/media/Pacifico-Regular.c0d735fc04154e03a691.ttf",
+    "static/media/pic1.svg": "/static/media/pic1.b18d73e1a3bccf86d1f8456eb1995e8d.svg",
+    "index.html": "/index.html",
+    "main.403e955f.css.map": "/static/css/main.403e955f.css.map",
+    "main.3ced2ad0.js.map": "/static/js/main.3ced2ad0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.403e955f.css",
+    "static/js/main.3ced2ad0.js"
+  ]
+}
