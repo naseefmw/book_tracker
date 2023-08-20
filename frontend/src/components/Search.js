@@ -11,6 +11,7 @@ import { IconButton } from '@mui/joy'
 import SearchIcon from '@mui/icons-material/Search'
 import SearchListItem from './SearchListItem'
 import ListDivider from '@mui/joy/ListDivider'
+import ModalDialog from '@mui/joy/ModalDialog'
 
 const Search = ({ open, setOpen, bookList }) => {
   const [searchEntry, setSearchEntry] = useState('')
@@ -64,6 +65,7 @@ const Search = ({ open, setOpen, bookList }) => {
           mt: 5,
           position: 'fixed',
           overflowY: 'scroll',
+          px: 1.5,
         }}
       >
         <Sheet
