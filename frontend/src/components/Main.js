@@ -87,14 +87,14 @@ const Main = ({ setUser }) => {
             .sort((a, b) => b.currentPage - a.currentPage)}
           setCurrentBook={setCurrentBook}
         />
-        <h2 id="finished">Finished</h2>
+        <h2 id="finished">Finished Reading</h2>
         <Section
           books={bookList
             .filter((book) => book.status === 'finished')
             .sort((a, b) => b.rating - a.rating)}
           setCurrentBook={setCurrentBook}
         />
-        <h2 id="planning">Planning</h2>
+        <h2 id="planning">Planning to Read</h2>
         <Section
           books={bookList.filter((book) => book.status === 'planning')}
           setCurrentBook={setCurrentBook}

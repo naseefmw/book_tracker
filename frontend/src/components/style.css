@@ -56,23 +56,24 @@ html {
 /*Main*/
 
 .background {
-  background-color: #bdd5ea;
+  background-color: #f7f7ff;
   margin: 0;
   min-height: 100vh;
 }
 
 .navbar {
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
   position: fixed;
   width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 1px 3px gray;
 }
 
 .navbar p {
   font-family: 'Pacifico';
-  font-size: 50px;
+  font-size: 30px;
   margin: 0;
   text-align: center;
 }
@@ -104,6 +105,15 @@ html {
   font-size: larger;
 }
 
+.booklist {
+  padding: 2%;
+  margin: 0;
+  padding-top: 5%;
+}
+#reading {
+  margin-top: 3%;
+}
+
 /*Search*/
 .searchbar {
   gap: 2px;
@@ -129,44 +139,57 @@ html {
   font-size: 12px;
 }
 
-.booklist {
-  padding: 2%;
-  margin: 0;
-  padding-top: 5%;
-}
-
-.reading {
+/*section*/
+.section {
   margin: auto;
-  padding: 1%;
-  padding-top: 5%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
 }
 
-.searchButton {
-  position: fixed;
-}
-
-.currentBook {
+.bookcard {
   min-width: 45%;
-  background-color: black;
+  background-color: #342e37;
   margin: 1% 1.8%;
   padding: 0.5%;
   display: flex;
   flex-wrap: wrap;
-  border-radius: 10px;
+  border-radius: 3px;
   border: 1px solid;
-  height: 110px;
+  height: auto;
+  box-shadow: 2px 3px 3px grey;
+  align-content: center;
+}
+
+.author {
+  font-size: medium;
+  color: white;
+  padding: 0 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress {
+  color: white;
+  font-size: 12px;
+  padding: 0 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.progress progress {
+  width: 460px;
+  accent-color: #577399;
 }
 
 .bookCover {
   padding: 0;
   max-height: 100px;
   width: 67px;
-  margin: 1%;
-  border-radius: 10px;
+  border-radius: 3px;
   border: 1px;
 }
 
@@ -182,10 +205,6 @@ html {
   flex: 3;
 }
 
-.bookInfo progress {
-  width: auto;
-  margin: 0 2%;
-}
 .title {
   margin: 0;
   padding: 0;
@@ -194,13 +213,14 @@ html {
   padding-right: 2%;
 }
 
-.bookInfo h2,
-h6 {
+.bookInfo h2 {
   margin: 0;
   padding: 0;
   margin: 0 2%;
   color: white;
 }
+
+/*bookinfomodal*/
 
 .bookinfoheader {
   display: flex;
