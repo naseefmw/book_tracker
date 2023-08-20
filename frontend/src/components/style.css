@@ -8,293 +8,522 @@ html {
   src: local('Pacifico'), url(../assets/Pacifico-Regular.ttf) format('truetype');
 }
 
-/*Login Page*/
-.logo {
-  font-family: 'Pacifico';
-}
-.loginRoot {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-}
+@media (min-width: 750px) {
+  /*Login Page*/
+  .logo {
+    font-family: 'Pacifico';
+  }
+  .loginRoot {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
 
-.loginRoot img {
-  width: 50%;
-}
+  .loginRoot img {
+    width: 50%;
+  }
 
-.login {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  .login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.loginformdiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 70%;
-}
+  .loginformdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+  }
 
-.loginformdiv form {
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 300px;
-  height: 400px;
-  margin-bottom: 56px;
-}
+  .loginformdiv form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 56px;
+  }
 
-.lightText {
-  text-align: center;
-  font-size: medium;
-  color: rgb(140, 140, 140);
-}
+  .lightText {
+    text-align: center;
+    font-size: medium;
+    color: rgb(140, 140, 140);
+  }
 
-/*Main*/
+  /*Main*/
 
-.background {
-  background-color: #f7f7ff;
-  margin: 0;
-  min-height: 100vh;
-}
+  .background {
+    background-color: #f7f7ff;
+    margin: 0;
+    min-height: 100vh;
+  }
 
-.navbar {
-  backdrop-filter: blur(2px);
-  position: fixed;
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 1px 3px gray;
-}
+  .navbar {
+    backdrop-filter: blur(2px);
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px gray;
+    z-index: 1;
+  }
 
-.navbar p {
-  font-family: 'Pacifico';
-  font-size: 30px;
-  margin: 0;
-  text-align: center;
-}
+  .navbar p {
+    font-family: 'Pacifico';
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+  }
 
-.secondbar {
-  padding: 0 2%;
-  padding-bottom: 0.5%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+  .secondbar {
+    padding: 0 2%;
+    padding-bottom: 0.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-.leftbuttons {
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
+  .leftbuttons {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
 
-.buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
 
-.secondbar a {
-  text-decoration: none;
-  color: black;
-  font-size: larger;
-}
+  .secondbar a {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+  }
 
-.booklist {
-  padding: 2%;
-  margin: 0;
-  padding-top: 5%;
-}
+  .booklist {
+    padding: 2%;
+    margin: 0;
+    padding-top: 5%;
+  }
 
-.booklist h2 {
-  margin: 1.5% 0;
-}
-.gap {
-  height: 5vh;
-  min-height: 57px;
-}
+  .booklist h2 {
+    margin: 1.5% 0;
+  }
+  .gap {
+    height: 5vh;
+    min-height: 57px;
+  }
 
-/*Search*/
-.searchbar {
-  gap: 2px;
-  display: flex;
-  flex-direction: row;
-}
+  /*Search*/
+  .searchbar {
+    gap: 2px;
+    display: flex;
+    flex-direction: row;
+  }
 
-.listitem {
-  height: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+  .listitem {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-.listdetails {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  .listdetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.listsubtext {
-  font-size: 12px;
-}
+  .listsubtext {
+    font-size: 12px;
+  }
 
-/*section*/
-.section {
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-}
+  /*section*/
+  .section {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 
-.bookcard {
-  min-width: 400px;
-  width: 46%;
-  background-color: #342e37;
-  margin: 1% 1%;
-  padding: 0.5%;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 3px;
-  border: 1px solid;
-  height: auto;
-  box-shadow: 2px 3px 3px grey;
-  align-content: center;
-}
+  .bookcard {
+    min-width: 400px;
+    width: 46%;
+    background-color: #342e37;
+    margin: 1% 1%;
+    padding: 0.5%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    border: 1px solid;
+    height: auto;
+    box-shadow: 2px 3px 3px grey;
+    align-content: center;
+  }
 
-.author {
-  font-size: medium;
-  color: white;
-  padding: 0 2%;
-  display: flex;
-  justify-content: space-between;
-}
+  .author {
+    font-size: medium;
+    color: white;
+    padding: 0 2%;
+    display: flex;
+    justify-content: space-between;
+  }
 
-.progress {
-  color: white;
-  font-size: 11px;
-  padding: 0 2%;
-}
+  .progress {
+    color: white;
+    font-size: 11px;
+    padding: 0 2%;
+  }
 
-.progress progress {
-  width: 100%;
-  accent-color: #577399;
-}
+  .progress progress {
+    width: 100%;
+    accent-color: #577399;
+  }
 
-.bookCover {
-  padding: 0;
-  max-height: 100px;
-  width: 67px;
-  border-radius: 3px;
-  border: 1px;
-}
+  .bookCover {
+    padding: 0;
+    max-height: 100px;
+    width: 67px;
+    border-radius: 3px;
+    border: 1px;
+  }
 
-.bookInfo {
-  max-height: 150px;
-  display: flex;
-  text-align: left;
-  margin: 1%;
-  padding: 0;
-  justify-content: space-evenly;
-  gap: 5px;
-  flex-direction: column;
-  flex: 3;
-}
+  .bookInfo {
+    max-height: 150px;
+    display: flex;
+    text-align: left;
+    margin: 1%;
+    padding: 0;
+    justify-content: space-evenly;
+    gap: 5px;
+    flex-direction: column;
+    flex: 3;
+  }
 
-.title {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  padding-right: 2%;
-}
+  .title {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2%;
+  }
 
-.bookInfo h2 {
-  margin: 0;
-  padding: 0;
-  margin: 0 2%;
-  color: white;
-}
+  .bookInfo h2 {
+    margin: 0;
+    padding: 0;
+    margin: 0 2%;
+    color: white;
+  }
 
-/*bookinfomodal*/
+  /*bookinfomodal*/
 
-.bookinfoheader {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 10px;
-}
-.bookinfoheader img {
-  min-height: 120px;
-  min-width: 80px;
-  width: 80px;
-  border-radius: 4px;
-}
+  .bookinfoheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .bookinfoheader img {
+    min-height: 120px;
+    min-width: 80px;
+    width: 80px;
+    border-radius: 4px;
+  }
 
-.headertext {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.headertext h5,
-h2,
-p {
-  margin: 0;
-}
+  .headertext {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .headertext h5,
+  h2,
+  p {
+    margin: 0;
+  }
 
-.headertext p {
-  font-size: smaller;
-}
+  .headertext p {
+    font-size: smaller;
+  }
 
-.bookinforow {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  .bookinforow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
-  padding: 0 2%;
-  gap: 20px;
-}
-.bookinforow input {
-  width: 200px;
-}
+    padding: 0 2%;
+    gap: 20px;
+  }
+  .bookinforow input {
+    width: 190px;
+  }
 
-.bookinfobuttons {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  .bookinfobuttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 
 /*Mobile*/
 @media (max-width: 749px) {
   /*Login Page*/
+  .logo {
+    font-family: 'Pacifico';
+  }
+  .loginRoot {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+
   .loginRoot img {
-    width: 0%;
+    display: none;
+  }
+
+  .login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .loginformdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+  }
+
+  .loginformdiv form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 56px;
+  }
+
+  .lightText {
+    text-align: center;
+    font-size: medium;
+    color: rgb(140, 140, 140);
+  }
+
+  /*Main*/
+
+  .background {
+    background-color: #f7f7ff;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  .navbar {
+    backdrop-filter: blur(2px);
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px gray;
+    z-index: 1;
+  }
+
+  .navbar p {
+    font-family: 'Pacifico';
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .secondbar {
+    padding: 0 2%;
+    padding-bottom: 0.5%;
   }
 
   .leftbuttons {
-    visibility: hidden;
+    display: none;
   }
 
-  .gap {
-    min-height: 90px;
-  }
-  .bookcard {
-    width: 100%;
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: end;
   }
 
-  .bookCover {
-    visibility: hidden;
-    width: 0;
-    height: 0;
+  .secondbar a {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
   }
 
   .booklist {
-    padding: 0 5%;
+    padding: 2%;
+    margin: 0;
+    padding-top: 5%;
+  }
+
+  .booklist h2 {
+    margin: 1.5%;
+  }
+  .gap {
+    height: 5vh;
+    min-height: 57px;
+  }
+
+  /*Search*/
+  .searchbar {
+    gap: 2px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .listitem {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .listitem button {
+    font-size: smaller;
+  }
+  .listdetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+  }
+
+  .listsubtext {
+    font-size: 12px;
+  }
+
+  /*section*/
+  .section {
+    margin: auto 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bookcard {
+    width: 100%;
+    background-color: #342e37;
+    margin: 1% 1%;
+    padding: 0.5%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    border: 1px solid;
+    height: auto;
+    box-shadow: 2px 3px 3px grey;
+    align-content: center;
+  }
+
+  .author {
+    font-size: medium;
+    color: white;
+    padding: 0 2%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .progress {
+    color: white;
+    font-size: 11px;
+    padding: 0 2%;
+  }
+
+  .progress progress {
+    width: 100%;
+    accent-color: #577399;
+  }
+
+  .bookCover {
+    display: none;
+  }
+
+  .bookInfo {
+    max-height: 150px;
+    display: flex;
+    text-align: left;
+    margin: 1%;
+    padding: 0;
+    justify-content: space-evenly;
+    gap: 5px;
+    flex-direction: column;
+    flex: 3;
+  }
+
+  .title {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2%;
+  }
+
+  .bookInfo h2 {
+    margin: 0;
+    padding: 0;
+    margin: 0 2%;
+    color: white;
+  }
+
+  /*bookinfomodal*/
+
+  .bookinfoheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .bookinfoheader img {
+    min-height: 120px;
+    min-width: 80px;
+    width: 80px;
+    border-radius: 4px;
+  }
+
+  .headertext {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .headertext h5,
+  h2,
+  p {
+    margin: 0;
+  }
+
+  .headertext p {
+    font-size: smaller;
+  }
+
+  .bookinforow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 2%;
+    gap: 20px;
+  }
+
+  .bookinfobuttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   }
 }

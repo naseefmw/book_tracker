@@ -11,6 +11,7 @@ import BookInfoHeader from './BookInfoHeader'
 import Select from '@mui/joy/Select'
 import Option from '@mui/joy/Option'
 import Slider from '@mui/joy/Slider'
+import { ModalClose } from '@mui/joy'
 
 const BookInfoModal = ({ book, open, setOpen, setBook }) => {
   const [status, setStatus] = useState(book.status)
@@ -73,6 +74,16 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <ModalDialog sx={{ width: 500, p: 3, gap: 2 }}>
+        <ModalClose
+          variant="outlined"
+          sx={{
+            top: 'calc(-1/4 * var(--IconButton-size))',
+            right: 'calc(-1/4 * var(--IconButton-size))',
+            boxShadow: '0 2px 12px 0 rgba(0 0 0 / 0.2)',
+            borderRadius: '50%',
+            bgcolor: 'background.surface',
+          }}
+        />
         <BookInfoHeader book={book} />
         <div className="bookinforow">
           <FormControl>
@@ -80,7 +91,7 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
             <Select
               value={status}
               onChange={handleSelect}
-              sx={{ width: '225px' }}
+              sx={{ width: '215px' }}
             >
               <Option value="reading">Reading</Option>
               <Option value="finished">Finished</Option>
