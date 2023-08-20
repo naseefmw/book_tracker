@@ -1,5 +1,5 @@
 import './style.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import IconButton from '@mui/joy/IconButton'
 import EditIcon from '@mui/icons-material/Edit'
 import BookInfoModal from './BookInfoModal'

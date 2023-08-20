@@ -5,13 +5,11 @@ import Sheet from '@mui/joy/Sheet'
 import Input from '@mui/joy/Input'
 import { useState } from 'react'
 import List from '@mui/joy/List'
-import ListItem from '@mui/joy/ListItem'
 import bookService from '../services/books'
 import { IconButton } from '@mui/joy'
 import SearchIcon from '@mui/icons-material/Search'
 import SearchListItem from './SearchListItem'
 import ListDivider from '@mui/joy/ListDivider'
-import ModalDialog from '@mui/joy/ModalDialog'
 
 const Search = ({ open, setOpen, bookList }) => {
   const [searchEntry, setSearchEntry] = useState('')
