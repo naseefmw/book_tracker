@@ -112,10 +112,11 @@ html {
 }
 
 .booklist h2 {
-  margin: 1% 0;
+  margin: 1.5% 0;
 }
-#reading {
-  margin-top: 3%;
+.gap {
+  height: 5vh;
+  min-height: 57px;
 }
 
 /*Search*/
@@ -153,9 +154,10 @@ html {
 }
 
 .bookcard {
-  min-width: 45%;
+  min-width: 400px;
+  width: 46%;
   background-color: #342e37;
-  margin: 1% 1.8%;
+  margin: 1% 1%;
   padding: 0.5%;
   display: flex;
   flex-wrap: wrap;
@@ -176,16 +178,12 @@ html {
 
 .progress {
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   padding: 0 2%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .progress progress {
-  width: 460px;
+  width: 100%;
   accent-color: #577399;
 }
 
@@ -204,7 +202,7 @@ html {
   margin: 1%;
   padding: 0;
   justify-content: space-evenly;
-
+  gap: 5px;
   flex-direction: column;
   flex: 3;
 }
@@ -258,7 +256,8 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: auto;
+
+  padding: 0 2%;
   gap: 20px;
 }
 .bookinforow input {
@@ -276,5 +275,26 @@ p {
   /*Login Page*/
   .loginRoot img {
     width: 0%;
+  }
+
+  .leftbuttons {
+    visibility: hidden;
+  }
+
+  .gap {
+    min-height: 90px;
+  }
+  .bookcard {
+    width: 100%;
+  }
+
+  .bookCover {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .booklist {
+    padding: 0 5%;
   }
 }

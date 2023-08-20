@@ -72,7 +72,7 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
 
   return (
     <Modal open={open} onClose={handleClose}>
-      <ModalDialog sx={{ width: 500, p: 2, gap: 2 }}>
+      <ModalDialog sx={{ width: 500, p: 3, gap: 2 }}>
         <BookInfoHeader book={book} />
         <div className="bookinforow">
           <FormControl>
@@ -126,6 +126,7 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
               slotProps={{
                 input: {
                   min: startDate,
+                  max: new Date().toISOString().toString().slice(0, 10),
                 },
               }}
             />
@@ -137,7 +138,7 @@ const BookInfoModal = ({ book, open, setOpen, setBook }) => {
             value={rating}
             color="neutral"
             onChange={({ target }) => setRating(target.value)}
-            valueLabelDisplay="on"
+            valueLabelDisplay="auto"
             min={0}
             max={10}
             step={1}

@@ -80,6 +80,7 @@ const Main = ({ setUser }) => {
       </div>
 
       <div className="booklist">
+        <div className="gap"></div>
         <h2 id="reading">Currently Reading</h2>
         <Section
           books={bookList

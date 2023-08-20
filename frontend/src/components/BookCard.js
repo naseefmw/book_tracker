@@ -29,7 +29,6 @@ const BookCard = ({ book, setBook }) => {
             <div>Rating: {book.rating} / 10</div>
           </div>
           <div className="progress">
-            <label>Progress </label>
             <progress max={book.pageCount} value={book.currentPage} />
           </div>
         </div>
