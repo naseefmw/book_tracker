@@ -24,18 +24,50 @@ beforeEach(async () => {
   token = result.body.token
 })
 
-test('books are returned as json', async () => {
-  await api
-    .get('/api/books')
-    .expect(200)
-    .expect('Content-Type', /application\/json/)
+describe('General', () => {
+  test('books are returned as json', async () => {
+    await api
+      .get('/api/books')
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+  })
+
+  test('all books are returned', async () => {
+    const response = await api
+      .get('/api/books')
+      .set('Authorization', `Bearer ${token}`)
+    expect(response.body).toHaveLength(helper.initialBooks.length)
+  })
 })
 
-test('all books are returned', async () => {
-  const response = await api
-    .get('/api/books')
-    .set('Authorization', `Bearer ${token}`)
-  expect(response.body).toHaveLength(helper.initialBooks.length)
+describe('When new books are added', () => {
+  test('a valide book can be added', async () => {
+    const newBook = {
+      title: 'Hunger Games',
+      apiId: 'aaaa',
+      author: ['h Suzanne Collins'],
+      status: 'planning',
+      image: 'imglink',
+      pageCount: 300,
+      currentPage: 0,
+      startDate: '',
+      endDate: '',
+      rating: 0,
+    }
+
+    await api
+      .post('/api/books')
+      .set('Authorization', `Bearer ${token}`)
+      .send(newBook)
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+
+    const booksAtEnd = await helper.booksInDb()
+    expect(booksAtEnd).toHaveLength(helper.initialBooks.length + 1)
+
+    const titles = booksAtEnd.map((n) => n.title)
+    expect(titles).toContain('Hunger Games')
+  })
 })
 
 afterAll(async () => {
