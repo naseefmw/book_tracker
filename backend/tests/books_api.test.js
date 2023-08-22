@@ -41,11 +41,11 @@ describe('General', () => {
 })
 
 describe('When new books are added', () => {
-  test('a valide book can be added', async () => {
+  test('a valid book can be added', async () => {
     const newBook = {
       title: 'Hunger Games',
       apiId: 'aaaa',
-      author: ['h Suzanne Collins'],
+      author: ['Suzanne Collins'],
       status: 'planning',
       image: 'imglink',
       pageCount: 300,
@@ -67,6 +67,34 @@ describe('When new books are added', () => {
 
     const titles = booksAtEnd.map((n) => n.title)
     expect(titles).toContain('Hunger Games')
+  })
+
+  test('a book with multiple authors can be added', async () => {
+    const newBook = {
+      title: 'This is How You Lose the Time War',
+      apiId: 'aaaa',
+      author: ['Amal El-Mohtar', 'Max Gladstone'],
+      status: 'finished',
+      image: 'imglink',
+      pageCount: 400,
+      currentPage: 400,
+      startDate: '',
+      endDate: '',
+      rating: 0,
+    }
+
+    await api
+      .post('/api/books')
+      .set('Authorization', `Bearer ${token}`)
+      .send(newBook)
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+
+    const booksAtEnd = await helper.booksInDb()
+    expect(booksAtEnd).toHaveLength(helper.initialBooks.length + 1)
+
+    const titles = booksAtEnd.map((n) => n.title)
+    expect(titles).toContain('This is How You Lose the Time War')
   })
 })
 
