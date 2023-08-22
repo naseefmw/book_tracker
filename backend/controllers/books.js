@@ -3,7 +3,7 @@ const Book = require('../models/book')
 
 booksRouter.get('/', async (request, response) => {
   const books = await Book.find({}).populate('user', { username: 1, name: 1 })
-  response.json(books[0])
+  response.json(books)
 })
 
 booksRouter.get('/shelf', async (request, response) => {
